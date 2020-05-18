@@ -1,0 +1,37 @@
+.form-group
+  label.col-sm-4.control-label(for='inputName') Name *
+  .col-sm-8
+    input#inputName.form-control(type='text', name='name', placeholder='Name', required='', data-parsley-maxlength='20', data-parsley-maxlength-message="This field can't have more than 20 characters", value=subscribe.name)
+.form-group
+  label.col-sm-4.control-label(for='inputPhoneNumber') Phone Number
+  .col-sm-8
+    input#inputPhoneNumber.form-control(type='number', name='phoneNumber', placeholder='Phone Number', required='', value=subscribe.phoneNumber)
+.form-group
+  label.col-sm-4.control-label(for='inputParticipants') Participants
+  .col-sm-8
+    input#inputParticipants.form-control(type='number', name='participants', placeholder='Participants', required='', value=subscribe.participants)
+.form-group
+  label.col-sm-4.control-label(for='selecttype') Type of activity
+  .col-sm-8
+    select#selectDelta.form-control(name='type', required='', value=subscribe.type)
+      option(selected=subscribe.type == '', value='') Select category
+      option(selected=subscribe.type == 'education', value='education') Education
+      option(selected=subscribe.type == 'recreational', value='recreational') Recreational 
+      option(selected=subscribe.type == 'social', value='social') Social
+      option(selected=subscribe.type == 'diy', value='diy') DIY
+      option(selected=subscribe.type == 'charity', value='charity') Charity
+      option(selected=subscribe.type == 'cooking', value='cooking') Cooking
+      option(selected=subscribe.type == 'relaxation', value='relaxation') Relaxation
+      option(selected=subscribe.type == 'music', value='music') Music
+      option(selected=subscribe.type == 'busywork', value='busywork') Busywork
+.form-group
+  label.col-sm-4.control-label(for='time') Time of Day
+  .col-sm-8
+    input#inputDate.form-control(type='text', name='time', placeholder='Pick a Time', required='', value=moment(subscribe.time).format('H'))
+.form-group
+  label.col-sm-4.control-label(for='selectTimeZone') Time Zone
+  .col-sm-8
+    select#selectTimeZone.form-control(name='timeZone', required='', value=subscribe.timeZone)
+      each zone in timeZones
+        option()
+        option(selected=zone == subscribe.timeZone, value= zone) !{zone}

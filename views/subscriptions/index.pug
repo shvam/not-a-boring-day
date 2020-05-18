@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+  table.table
+      thead
+        tr
+          th Name
+          th Phone number
+          th Participants
+          th TimeZone
+          th Type
+          th time
+          th
+      tbody
+        each subscribe in subscriptions
+          tr
+            td  !{subscribe.name}
+            td  !{subscribe.phoneNumber}
+            td  !{subscribe.participants}
+            td  !{subscribe.timeZone}
+            td  !{subscribe.type}
+            td  !{subscribe.time}
+            td
+              a.btn.btn-default.btn-sm(href="/subscriptions/" + subscribe.id + "/edit") Edit
+            td
+              form(action="/subscriptions/" + subscribe.id + "/delete",method="POST")
+                button.btn.btn-danger.btn-sm(type='submit') Delete
